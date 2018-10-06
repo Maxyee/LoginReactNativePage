@@ -8,14 +8,22 @@ import Secured from './component/Secured';
 
 export default class App extends React.Component {
 
-  // state = {
-  //   isLoggedIn: false
-  // }
+  state = {
+    isLoggedIn: false
+  }
 
   render() {
-    return (
-       <Login/>
-    );
+    
+    if(this.state.isLoggedIn){
+      return(
+        <Secured onLogoutPress={() => this.setState({isLoggedIn: false})}/>
+      );
+    }
+    else{
+      return(
+        <Login onLoginPress = {() => this.setState({isLoggedIn: true})}/>
+      );
+    }
   }
 }
 

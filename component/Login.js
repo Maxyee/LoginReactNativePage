@@ -35,11 +35,11 @@ export default class Login extends Component{
             var encodedValue = encodeURIComponent(params[property]);
             fromBody.push(encodedKey + "=" + encodedValue);
         }
-
+        
         fromBody = fromBody.join("&");
 
         var proceed = false;
-        fetch("https://testglostarsdevelopers.azurewebsites.net/token", {
+        fetch("https://www.glostars.com/api/account/LoginToken", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
